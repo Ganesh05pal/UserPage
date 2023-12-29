@@ -41,7 +41,8 @@ def loginpage(request):
             login(request,user)
             return redirect('/home')
         else:
-            return HttpResponse("Please Enter the Correct UserName and Password!!!")
+            messages.error(request,"Please Enter the Correct UserName and Password!!!")
+            return redirect("/login")
 
     return render(request,'login.html')
 
